@@ -1,6 +1,7 @@
 import React from "react";
 
-const Message = () => {
+const Message = ({ message }) => {
+  const date = new Date(message.updatedAt);
   return (
     <div className="chat chat-end">
       <div className="chat-image avatar">
@@ -12,10 +13,10 @@ const Message = () => {
         </div>
       </div>
       <div className={`chat-bubble text-white bg-blue-500`}>
-        Hi! How is it going
+        {message.message}
       </div>
       <div className={`chat-footer opacity-50 text-xs flex gap-1 items-center`}>
-        12:42
+        {date.getHours()}:{date.getMinutes()}
       </div>
     </div>
   );
